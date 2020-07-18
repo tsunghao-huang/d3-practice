@@ -1,0 +1,30 @@
+/* svg {
+  border: 2px dashed pink;
+} */
+
+body {
+  text-align: center;
+}
+
+.cell{
+  stroke: white;
+}
+
+.cell:hover {
+  stroke: black;
+}
+
+#legend rect {
+  stroke: black;
+}
+
+#tooltip {
+  position: absolute;
+  pointer-events: none;
+  font: 12px sans-serif;
+  color: white;
+  background: black;	
+  border: 0px;		
+  border-radius: 8px;
+  padding: 8px;
+}

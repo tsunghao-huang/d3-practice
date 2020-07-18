@@ -1,0 +1,29 @@
+#title {
+    text-align: center;
+  }
+  
+  svg {
+  /*   border: 5px solid pink; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .dot:hover {
+    stroke: #000;
+  }
+  
+  #tooltip {
+    position: absolute;
+    pointer-events: none;
+    font: 12px sans-serif;
+    color: white;
+    background: black;	
+    border: 0px;		
+    border-radius: 8px;
+    padding: 8px;
+  }
+  
+  .legend-dot {
+    stroke: gray;
+  }

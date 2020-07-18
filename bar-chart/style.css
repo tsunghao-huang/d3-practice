@@ -1,0 +1,28 @@
+/* make the svg container more visable */
+/* svg {
+  border: 6px dotted pink;
+} */
+
+body {
+    text-align: center;
+}
+
+.bar:hover {
+    stroke: black;
+    opacity: 0.5;
+  }
+  
+  #title {
+    text-align: center;
+  }
+  
+  #tooltip {
+    position: absolute;
+    pointer-events: none;
+    font: 12px sans-serif;
+    color: white;
+    background: black;	
+    border: 0px;		
+    border-radius: 8px;
+    padding: 8px;
+  }
