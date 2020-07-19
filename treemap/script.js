@@ -4,7 +4,7 @@ const margin = { top: 10, right: 10, bottom: 60, left: 10 },
   h = 800 - margin.top - margin.bottom;
 
 // read json data
-fetch('https://cdn.freecodecamp.org/testable-projects-fcc/data/tree_map/video-game-sales-data.json')
+fetch('https://cdn.freecodecamp.org/testable-projects-fcc/data/tree_map/movie-data.json')
   .then(result => result.json())
   .then(data => {
 
@@ -12,10 +12,10 @@ fetch('https://cdn.freecodecamp.org/testable-projects-fcc/data/tree_map/video-ga
     const heading = section.append('heading');
     heading.append('h1')
       .attr('id', 'title')
-      .text('Video Game Sales');
+      .text('Movie Sales');
     heading.append('h3')
       .attr('id', 'description')
-      .text('Top Video Games Sold Grouped by Genre');
+      .text('Top Movies Sold Grouped by Genre');
 
     // append the svg object to the body of the page
     const svg = d3.select("body")
@@ -38,19 +38,21 @@ fetch('https://cdn.freecodecamp.org/testable-projects-fcc/data/tree_map/video-ga
       .attr('transform', `translate(${(margin.left + margin.right) / 2}, ${margin.top})`);
     const rectOpacity = 0.7;
     function myColor(t) { return d3.interpolateRainbow(t) };
-    g.selectAll("rect")
+
+    const cell = g.selectAll('g')
       .data(root.leaves())
       .enter()
-      .append("rect")
-      .attr('x', (d) => d.x0)
-      .attr('y', (d) => d.y0)
+      .append("g")
+      .attr('transform', (d) => `translate(${d.x0}, ${d.y0})`);
+
+    const tile = cell.append("rect")
       .attr('width', (d) => d.x1 - d.x0)
       .attr('height', (d) => d.y1 - d.y0)
       .style("fill", (d) => {
         const t = (categories.indexOf(d.data.category) + 1) / categories.length;
         return myColor(t);
       })
-      .attr('opacity', 0.7)
+      .attr('opacity', rectOpacity)
       .attr('class', 'tile')
       .attr('data-name', (d) => d.data.name)
       .attr('data-category', (d) => d.data.category)
@@ -64,15 +66,17 @@ fetch('https://cdn.freecodecamp.org/testable-projects-fcc/data/tree_map/video-ga
       })
       .on('mouseout', () => tooltip.style('opacity', 0));
 
-    g.selectAll('text')
-      .data(root.leaves())
-      .enter()
-      .append('text')
-      .attr('x', (d) => d.x0)
-      .attr('y', (d) => d.y0 + 10)
-      .text((d) => d.data.name)
+    cell.append('text')
       .attr('font-size', '8px')
       .attr('id', 'tile-title')
+      .selectAll('tspan')
+      .data((d) => d.data.name.split(/\s(?=[A-Z])/g))
+      .enter().append("tspan")
+      .text((d) => d)
+      .attr('x', 2)
+      .attr('y', (d, i) => 10 + i * 10)
+
+
     const legend = svg.append('g').attr('id', 'legend');
     const legendItemWidth = 150;
     const legendSquareSide = 10;
