@@ -1,0 +1,18 @@
+body {
+  text-align: center;
+}
+
+/* svg {
+  border: dashed pink;
+} */
+
+#tooltip {
+  position: absolute;
+  pointer-events: none;
+  font: 12px sans-serif;
+  color: white;
+  background: black;	
+  border: 0px;		
+  border-radius: 8px;
+  padding: 8px;
+}
