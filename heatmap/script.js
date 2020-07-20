@@ -1,4 +1,4 @@
-const w = 1400;
+const w = 1200;
 const h = 600;
 const padding = { top: 10, left: 100, right: 50, bottom: 100 };
 
