@@ -1,0 +1,104 @@
+:root {
+    --theme-color: rgb(60, 60, 60);
+}
+
+a {
+    color: aliceblue;
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    background-color: var(--theme-color);
+    color: whitesmoke;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+nav {
+    background-color: var(--theme-color);
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.nav-list {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-list a {
+    display: block;
+    font-size: 1.5rem;
+    padding: 0.1rem 1rem;
+}
+
+h1 {
+    font-size: 4rem;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+#h3-link:hover {
+    color: rgb(163, 161, 161);
+}
+
+.projects-grid {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-wrap: wrap;
+}
+
+.project.project-tile {
+    font-size: 2rem;
+    border-radius: 15px;
+    transition: transform 0.2s;
+    width: 25vmax;
+    height: 18vmax;
+    margin: 1.8rem 1.2rem;
+}
+
+.project-image {
+    width: 100%;
+    height: 86%;
+    border-radius: 15px;
+}
+
+.project-tile:hover {
+    transform: scale(1.1);
+}
+
+.project-tile:focus {
+    outline: none;
+}
+
+.project-title {
+    margin: 0;
+}
+
+@media (max-width: 910px) {
+    html {
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 526px) {
+    html {
+        font-size: 80%;
+    }
+    .project.project-tile {
+        width: 75vmin;
+        height: 54vmin;
+        margin: 1.2rem;
+    }
+}
+
+@media (max-width: 370px) {
+    html {
+        font-size: 70%;
+    }
+}
